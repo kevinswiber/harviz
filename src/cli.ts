@@ -10,21 +10,20 @@ import { PrintOptions } from "./types";
 const argv = yargs(hideBin(process.argv))
   .command(
     "$0 <file>",
-    "Visualize HTTP Archive (HAR) files right in your terminal.",
-    (yargs) => {
-      return yargs.positional("file", {
-        description: "HAR file to analyze",
-        type: "string",
-      });
-    }
+    "Visualize HTTP Archive (HAR) files right in your terminal."
   )
+  .positional("file", {
+    describe: "HAR file to analyze",
+    type: "string",
+  })
   .option("style", {
     describe: "Style of output",
     choices: ["standard", "compact"] as const,
     default: "standard",
   })
   .version()
-  .help().argv as { [key: string]: unknown } & PrintOptions;
+  .help()
+  .strict().argv as { [key: string]: unknown } & PrintOptions;
 
 const har: Har = JSON.parse(readFileSync(argv.file, "utf8"));
 
