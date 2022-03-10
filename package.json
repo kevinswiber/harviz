@@ -1,0 +1,53 @@
+{
+  "name": "harviz",
+  "version": "1.0.0",
+  "description": "Visualize HTTP Archive (HAR) files right in your terminal.",
+  "bin": "dist/cli.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && npm run chmod",
+    "watch": "npm run build && tsc -w --preserveWatchOutput",
+    "test": "jest --cacheDirectory=.cache/.jest",
+    "start": "npm run build && node ./dist/cli.js",
+    "clean": "tsc --build --clean",
+    "chmod": "node -e \"require('fs').chmodSync('./dist/cli.js', 0o750)\"",
+    "prepack": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "har",
+    "analyze",
+    "http archive",
+    "terminal"
+  ],
+  "author": "Kevin Swiber <kswiber@gmail.com>",
+  "license": "Apache-2.0",
+  "files": [
+    "src/*",
+    "dist/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "byte-size": "^8.1.0",
+    "cliui": "^7.0.4",
+    "colorette": "^2.0.16",
+    "yargs": "^17.3.1"
+  },
+  "devDependencies": {
+    "@types/byte-size": "^8.1.0",
+    "@types/har-format": "^1.2.8",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^14.18.3",
+    "@types/yargs": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "include": ["**/*.ts"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "target": "es2020",
+    "resolveJsonModule": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".cache/.tsbuildinfo",
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["node_modules", "**/__*__/**"]
+}
